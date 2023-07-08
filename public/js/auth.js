@@ -22,6 +22,11 @@ miFormulario.addEventListener("submit",env=>{
         }
         console.log('todo OK ')
         localStorage.setItem('token',token)
+
+        window.location = 'chat.html'
+
+
+
     })
     .catch(err => {
         console.log('el error es: ' + err)
