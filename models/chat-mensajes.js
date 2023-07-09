@@ -1,11 +1,3 @@
-class Mensaje{
-    constructor(uid,nombre,mensaje ){
-        this.uid = uid;
-        this.nombre = nombre;
-        this.mensaje = mensaje;
-    }
-}
-
 
 class ChatMensajes{
 
@@ -35,7 +27,12 @@ class ChatMensajes{
         delete this.usuarios[id]; // borra una propiedad el delete
     }
 }
-
-module.exports= {
-    ChatMensajes
+class Mensaje{
+    constructor(uid,nombre,mensaje ){
+        this.uid = uid;
+        this.nombre = nombre;
+        this.mensaje = mensaje;
+    }
 }
+
+module.exports= ChatMensajes

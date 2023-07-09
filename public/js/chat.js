@@ -46,16 +46,16 @@ const conectarSocket = async ()=>{
         console.log('Sockets online')
     })
 
-    socket.on('disconnect',()=>{
-        console.log('Sockets disconnected')
+    socket.on('disconnect',(payload)=>{
+        console.log('usuarios desconectados '+ payload)
     })
 
     socket.on('recibir-mensajes', ()=>{
         //TODO
     })
 
-    socket.on('usuarios-activos', ()=>{
-        //TODO
+    socket.on('usuarios-activos', (payload)=>{
+        console.log(payload)
     })
 
     socket.on('mensaje-privado', ()=>{
