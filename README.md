@@ -14,9 +14,9 @@ Must be connected with MongoDb database
 
 ## Installation
 
--run npm i  install -y
--run "nodemon app" in terminal
--Connect with Mongoose Database 
+- run npm i  install -y
+- run "nodemon app" in terminal
+- Connect with Mongoose Database 
 
 ## Usage
 
