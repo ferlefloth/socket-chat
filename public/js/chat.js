@@ -50,9 +50,7 @@ const conectarSocket = async ()=>{
         console.log('usuarios desconectados '+ payload)
     })
 
-    socket.on('recibir-mensajes', (payload)=>{
-        console.log("recibir-mensajes "+JSON.stringify(payload))
-    })
+    socket.on('recibir-mensajes', dibujarMensajes ) //mando la función 
 
     socket.on('usuarios-activos', (payload)=>{
          dibujarUsuarios(payload)
@@ -78,6 +76,23 @@ const dibujarUsuarios = (usuarios = [])=>{
         `
     })
     ulUsuarios.innerHTML = usersHtml
+}
+
+const dibujarMensajes = (mensajes = [])=>{
+
+    let mensajesHtml = ''
+    mensajes.forEach(({nombre, mensaje}) =>{
+        mensajesHtml += `
+        <li>
+            <p>
+                <span class="text-primary">${ nombre }</span>
+                <span>${ mensaje }</span>
+            </p>
+        </li>
+        
+        `
+    })
+    ulMensajes.innerHTML = mensajesHtml
 
 }
 

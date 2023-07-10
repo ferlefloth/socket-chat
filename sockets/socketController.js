@@ -17,7 +17,8 @@ const socketController = async (socket = new Socket(), io)=>{ // Acá borrar la 
     chatMensajes.conectarUsuario(usuario)
     
     io.emit('usuarios-activos',chatMensajes.usuariosArr) //el ío es para todos losqeu esten conectados
-   
+    socket.emit('recibir-mensajes', chatMensajes.ultimosDiez)
+    
     socket.on('disconnect',()=>{
         chatMensajes.desconectarUsuario(usuario.id)
         io.emit('usuarios-activos',chatMensajes.usuariosArr)
