@@ -50,8 +50,8 @@ const conectarSocket = async ()=>{
         console.log('usuarios desconectados '+ payload)
     })
 
-    socket.on('recibir-mensajes', ()=>{
-        //TODO
+    socket.on('recibir-mensajes', (payload)=>{
+        console.log("recibir-mensajes "+JSON.stringify(payload))
     })
 
     socket.on('usuarios-activos', (payload)=>{
@@ -80,6 +80,19 @@ const dibujarUsuarios = (usuarios = [])=>{
     ulUsuarios.innerHTML = usersHtml
 
 }
+
+txtMensaje.addEventListener( 'keyup' , ( ev ) => { //keyCode es un valor que viene en el evento del botón. Determina cual fue la técla que se presionó
+        const keyCode = ev.keyCode;
+        const mensaje = txtMensaje.value
+        const uid = txtUid.value
+
+        if( keyCode !== 13 ){ return; }
+        if (mensaje.length === 0 ){ return; }
+
+        socket.emit('enviar-mensaje', {mensaje,uid}) //es buena práctica enviar un objeto, para poder handlear en el futuro otros posibles datos a enviar al back
+        txtMensaje.value= ''
+})
+
 
 const main = async ()=>{
 
